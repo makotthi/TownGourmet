@@ -1,5 +1,3 @@
-
-
 import UIKit
 
 class SecondViewController: UIViewController {
@@ -9,6 +7,4 @@ class SecondViewController: UIViewController {
         // Do any additional setup after loading the view.
     }
 
-
 }
-
