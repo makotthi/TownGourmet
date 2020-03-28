@@ -4,4 +4,5 @@ use_frameworks!
 
 target 'TownGourmet' do
     pod 'Nuke', '~> 8.0'
+    pod 'SwiftLint'
 end
