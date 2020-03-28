@@ -14,6 +14,7 @@
 		0ECD71FF242FB04200A99AED /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 0ECD71FD242FB04200A99AED /* Main.storyboard */; };
 		0ECD7201242FB04700A99AED /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 0ECD7200242FB04700A99AED /* Assets.xcassets */; };
 		0ECD7204242FB04700A99AED /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 0ECD7202242FB04700A99AED /* LaunchScreen.storyboard */; };
+		508E71D7DE10FCFFDD3DEA00 /* Pods_TownGourmet.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = F5280EA2648105B0C14921F1 /* Pods_TownGourmet.framework */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -26,6 +27,9 @@
 		0ECD7200242FB04700A99AED /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		0ECD7203242FB04700A99AED /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		0ECD7205242FB04700A99AED /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		2113E807D3C108CEB2FBA9BB /* Pods-TownGourmet.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-TownGourmet.release.xcconfig"; path = "Target Support Files/Pods-TownGourmet/Pods-TownGourmet.release.xcconfig"; sourceTree = "<group>"; };
+		38037BD9613A259B21F765B9 /* Pods-TownGourmet.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-TownGourmet.debug.xcconfig"; path = "Target Support Files/Pods-TownGourmet/Pods-TownGourmet.debug.xcconfig"; sourceTree = "<group>"; };
+		F5280EA2648105B0C14921F1 /* Pods_TownGourmet.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_TownGourmet.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -33,6 +37,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				508E71D7DE10FCFFDD3DEA00 /* Pods_TownGourmet.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -44,6 +49,8 @@
 			children = (
 				0ECD71F4242FB04200A99AED /* TownGourmet */,
 				0ECD71F3242FB04200A99AED /* Products */,
+				C29C6F2026CBF7D68CDB4938 /* Pods */,
+				9F209322DDACFC287C555257 /* Frameworks */,
 			);
 			sourceTree = "<group>";
 		};
@@ -70,6 +77,24 @@
 			path = TownGourmet;
 			sourceTree = "<group>";
 		};
+		9F209322DDACFC287C555257 /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				F5280EA2648105B0C14921F1 /* Pods_TownGourmet.framework */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
+		C29C6F2026CBF7D68CDB4938 /* Pods */ = {
+			isa = PBXGroup;
+			children = (
+				38037BD9613A259B21F765B9 /* Pods-TownGourmet.debug.xcconfig */,
+				2113E807D3C108CEB2FBA9BB /* Pods-TownGourmet.release.xcconfig */,
+			);
+			name = Pods;
+			path = Pods;
+			sourceTree = "<group>";
+		};
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
@@ -77,9 +102,11 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = 0ECD7208242FB04700A99AED /* Build configuration list for PBXNativeTarget "TownGourmet" */;
 			buildPhases = (
+				84EFA83F43F35F373DCFABF9 /* [CP] Check Pods Manifest.lock */,
 				0ECD71EE242FB04200A99AED /* Sources */,
 				0ECD71EF242FB04200A99AED /* Frameworks */,
 				0ECD71F0242FB04200A99AED /* Resources */,
+				FD72F47EF3D69D072C864160 /* [CP] Embed Pods Frameworks */,
 			);
 			buildRules = (
 			);
@@ -135,6 +162,48 @@
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXResourcesBuildPhase section */
+
+/* Begin PBXShellScriptBuildPhase section */
+		84EFA83F43F35F373DCFABF9 /* [CP] Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+			);
+			inputPaths = (
+				"${PODS_PODFILE_DIR_PATH}/Podfile.lock",
+				"${PODS_ROOT}/Manifest.lock",
+			);
+			name = "[CP] Check Pods Manifest.lock";
+			outputFileListPaths = (
+			);
+			outputPaths = (
+				"$(DERIVED_FILE_DIR)/Pods-TownGourmet-checkManifestLockResult.txt",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
+			showEnvVarsInLog = 0;
+		};
+		FD72F47EF3D69D072C864160 /* [CP] Embed Pods Frameworks */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+				"${PODS_ROOT}/Target Support Files/Pods-TownGourmet/Pods-TownGourmet-frameworks-${CONFIGURATION}-input-files.xcfilelist",
+			);
+			name = "[CP] Embed Pods Frameworks";
+			outputFileListPaths = (
+				"${PODS_ROOT}/Target Support Files/Pods-TownGourmet/Pods-TownGourmet-frameworks-${CONFIGURATION}-output-files.xcfilelist",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${PODS_ROOT}/Target Support Files/Pods-TownGourmet/Pods-TownGourmet-frameworks.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+/* End PBXShellScriptBuildPhase section */
 
 /* Begin PBXSourcesBuildPhase section */
 		0ECD71EE242FB04200A99AED /* Sources */ = {
@@ -286,6 +355,7 @@
 		};
 		0ECD7209242FB04700A99AED /* Debug */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 38037BD9613A259B21F765B9 /* Pods-TownGourmet.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;
@@ -304,6 +374,7 @@
 		};
 		0ECD720A242FB04700A99AED /* Release */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 2113E807D3C108CEB2FBA9BB /* Pods-TownGourmet.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;
