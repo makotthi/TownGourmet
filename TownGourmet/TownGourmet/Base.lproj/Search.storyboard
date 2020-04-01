@@ -20,6 +20,9 @@
                     <tabBarItem key="tabBarItem" systemItem="search" id="1mW-oN-91c"/>
                     <navigationItem key="navigationItem" title="検索" id="ksY-pS-rak"/>
                     <simulatedTabBarMetrics key="simulatedBottomBarMetrics"/>
+                    <connections>
+                        <segue destination="okL-e0-wk4" kind="show" identifier="goNextView" id="v4j-t4-l1S"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="cov-eu-0VI" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
@@ -42,6 +45,26 @@
                 <placeholder placeholderIdentifier="IBFirstResponder" id="R31-Nq-lkv" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="85.507246376811594" y="46.875"/>
+        </scene>
+        <!--Details-->
+        <scene sceneID="Mqm-pp-Jnp">
+            <objects>
+                <viewControllerPlaceholder storyboardName="Details" id="8S1-sN-qzF" sceneMemberID="viewController">
+                    <navigationItem key="navigationItem" id="sNg-Vx-mEt"/>
+                </viewControllerPlaceholder>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="SdV-ZB-vfG" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="2872" y="47"/>
+        </scene>
+        <!--Results-->
+        <scene sceneID="iWP-vL-jPa">
+            <objects>
+                <viewControllerPlaceholder storyboardName="Results" id="okL-e0-wk4" sceneMemberID="viewController">
+                    <navigationItem key="navigationItem" id="1eP-OX-o1X"/>
+                </viewControllerPlaceholder>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="ewd-Ug-khz" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="1916" y="47"/>
         </scene>
     </scenes>
 </document>

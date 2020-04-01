@@ -20,10 +20,23 @@
                     <tabBarItem key="tabBarItem" systemItem="favorites" id="g0Q-UH-GXq"/>
                     <navigationItem key="navigationItem" title="お気に入り" id="co1-4p-rGv"/>
                     <simulatedTabBarMetrics key="simulatedBottomBarMetrics"/>
+                    <connections>
+                        <segue destination="RlK-9A-aPy" kind="show" identifier="goNextView" id="YLO-5N-1lN"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="6qx-Cw-eEX" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="1042.0289855072465" y="58.928571428571423"/>
+        </scene>
+        <!--Details-->
+        <scene sceneID="Ifv-YQ-rli">
+            <objects>
+                <viewControllerPlaceholder storyboardName="Details" id="RlK-9A-aPy" sceneMemberID="viewController">
+                    <navigationItem key="navigationItem" id="5NQ-T2-aaP"/>
+                </viewControllerPlaceholder>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="hhQ-LF-Fqp" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="1943" y="59"/>
         </scene>
         <!--Navigation Controller-->
         <scene sceneID="0gg-T8-Jgc">
