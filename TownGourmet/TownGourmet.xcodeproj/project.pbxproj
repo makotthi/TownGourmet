@@ -14,6 +14,7 @@
 		0E87F0B82434E9D200D6CE98 /* SearchViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0E87F0B72434E9D200D6CE98 /* SearchViewController.swift */; };
 		0E87F0BA2434EAC800D6CE98 /* ResultsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0E87F0B92434EAC800D6CE98 /* ResultsViewController.swift */; };
 		0E87F0BC2434EB4600D6CE98 /* DetailsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0E87F0BB2434EB4600D6CE98 /* DetailsViewController.swift */; };
+		0E87F0BE2434EB9B00D6CE98 /* FavoritesViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0E87F0BD2434EB9B00D6CE98 /* FavoritesViewController.swift */; };
 		0ECD71F6242FB04200A99AED /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0ECD71F5242FB04200A99AED /* AppDelegate.swift */; };
 		0ECD71F8242FB04200A99AED /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0ECD71F7242FB04200A99AED /* SceneDelegate.swift */; };
 		0ECD71FF242FB04200A99AED /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 0ECD71FD242FB04200A99AED /* Main.storyboard */; };
@@ -30,6 +31,7 @@
 		0E87F0B72434E9D200D6CE98 /* SearchViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchViewController.swift; sourceTree = "<group>"; };
 		0E87F0B92434EAC800D6CE98 /* ResultsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ResultsViewController.swift; sourceTree = "<group>"; };
 		0E87F0BB2434EB4600D6CE98 /* DetailsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DetailsViewController.swift; sourceTree = "<group>"; };
+		0E87F0BD2434EB9B00D6CE98 /* FavoritesViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FavoritesViewController.swift; sourceTree = "<group>"; };
 		0ECD71F2242FB04200A99AED /* TownGourmet.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = TownGourmet.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		0ECD71F5242FB04200A99AED /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		0ECD71F7242FB04200A99AED /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -60,6 +62,7 @@
 				0E87F0B72434E9D200D6CE98 /* SearchViewController.swift */,
 				0E87F0B92434EAC800D6CE98 /* ResultsViewController.swift */,
 				0E87F0BB2434EB4600D6CE98 /* DetailsViewController.swift */,
+				0E87F0BD2434EB9B00D6CE98 /* FavoritesViewController.swift */,
 			);
 			path = Controllers;
 			sourceTree = "<group>";
@@ -239,6 +242,7 @@
 				0ECD71F6242FB04200A99AED /* AppDelegate.swift in Sources */,
 				0ECD71F8242FB04200A99AED /* SceneDelegate.swift in Sources */,
 				0E87F0BA2434EAC800D6CE98 /* ResultsViewController.swift in Sources */,
+				0E87F0BE2434EB9B00D6CE98 /* FavoritesViewController.swift in Sources */,
 				0E87F0BC2434EB4600D6CE98 /* DetailsViewController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
