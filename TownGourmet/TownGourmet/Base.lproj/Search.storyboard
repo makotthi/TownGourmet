@@ -19,11 +19,17 @@
                                 <rect key="frame" x="161" y="192" width="92" height="30"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <state key="normal" title="現在地を取得"/>
+                                <connections>
+                                    <action selector="reloadCurrentLocation:" destination="41T-rd-aNN" eventType="touchUpInside" id="CeG-S0-Et2"/>
+                                </connections>
                             </button>
                             <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="vCc-nD-W2z">
                                 <rect key="frame" x="100" y="263" width="215" height="30"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <state key="normal" title="現在地周辺のレストランを検索"/>
+                                <connections>
+                                    <action selector="searchRestaurantsAround:" destination="41T-rd-aNN" eventType="touchUpInside" id="XLm-FP-1If"/>
+                                </connections>
                             </button>
                         </subviews>
                         <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
@@ -33,6 +39,8 @@
                     <navigationItem key="navigationItem" title="検索" id="ksY-pS-rak"/>
                     <simulatedTabBarMetrics key="simulatedBottomBarMetrics"/>
                     <connections>
+                        <outlet property="reloadCurrentLocationButton" destination="fjv-Gp-mPW" id="Iwz-bQ-92I"/>
+                        <outlet property="searchRestaurantAroundButton" destination="vCc-nD-W2z" id="WXU-qC-noa"/>
                         <segue destination="okL-e0-wk4" kind="show" identifier="goNextView" id="v4j-t4-l1S"/>
                     </connections>
                 </viewController>
