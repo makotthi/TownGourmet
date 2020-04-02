@@ -20,7 +20,7 @@
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <state key="normal" title="現在地を取得"/>
                                 <connections>
-                                    <action selector="reloadCurrentLocation:" destination="41T-rd-aNN" eventType="touchUpInside" id="CeG-S0-Et2"/>
+                                    <action selector="reloadCurrentLocation:" destination="41T-rd-aNN" eventType="touchUpInside" id="GXU-fu-Wwd"/>
                                 </connections>
                             </button>
                             <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="vCc-nD-W2z">
@@ -28,7 +28,7 @@
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <state key="normal" title="現在地周辺のレストランを検索"/>
                                 <connections>
-                                    <action selector="searchRestaurantsAround:" destination="41T-rd-aNN" eventType="touchUpInside" id="XLm-FP-1If"/>
+                                    <action selector="searchRestaurantsAround:" destination="41T-rd-aNN" eventType="touchUpInside" id="8Eb-KW-juF"/>
                                 </connections>
                             </button>
                         </subviews>
@@ -39,8 +39,8 @@
                     <navigationItem key="navigationItem" title="検索" id="ksY-pS-rak"/>
                     <simulatedTabBarMetrics key="simulatedBottomBarMetrics"/>
                     <connections>
-                        <outlet property="reloadCurrentLocationButton" destination="fjv-Gp-mPW" id="Iwz-bQ-92I"/>
-                        <outlet property="searchRestaurantAroundButton" destination="vCc-nD-W2z" id="WXU-qC-noa"/>
+                        <outlet property="reloadCurrentLocationButton" destination="fjv-Gp-mPW" id="kru-mB-U0m"/>
+                        <outlet property="searchRestaurantsAroundButton" destination="vCc-nD-W2z" id="4lp-5T-dJz"/>
                         <segue destination="okL-e0-wk4" kind="show" identifier="goNextView" id="v4j-t4-l1S"/>
                     </connections>
                 </viewController>
