@@ -8,6 +8,13 @@ class SearchViewController: UIViewController {
     // 現在地周辺のレストランを検索ボタン
     @IBOutlet private weak var searchRestaurantsAroundButton: UIButton!
     
+    // 現在地を取得するクラス
+    private var currentLocationReader = CurrentLocationReader()
+    
+    // 緯度と経度
+    private var latitude: Double?
+    private var longitude: Double?
+    
     override func viewDidLoad() {
         super.viewDidLoad()
 
@@ -15,6 +22,40 @@ class SearchViewController: UIViewController {
     }
     
 
+}
+
+
+// MARK: - ReadCurrentLocation
+extension SearchViewController {
+    // 現在地を取得する
+    private func readCurrentLocation(){
+        // 検索ボタンと再取得ボタンを無効にする
+        searchRestaurantsAroundButton.isEnabled = false
+        reloadCurrentLocationButton.isEnabled = false
+        
+        // 現在地を取得する
+        currentLocationReader.readCurrentLocation {[unowned self] result in
+            switch result {
+            // 位置情報の取得に成功した時
+            case .success(let latitude, let longitude):
+                // 緯度と経度を受け取る
+                self.latitude = latitude
+                self.longitude = longitude
+                // 検索ボタンを有効にする
+                self.searchRestaurantsAroundButton.isEnabled = true
+
+            // 位置情報の取得に失敗した時
+            case .failure(let error):
+                print(error)
+                
+            }
+            // 現在地再取得ボタンを有効にする
+            self.reloadCurrentLocationButton.isEnabled = true
+            
+            print(self.latitude)
+            print(self.longitude)
+        }
+    }
 }
 
 
