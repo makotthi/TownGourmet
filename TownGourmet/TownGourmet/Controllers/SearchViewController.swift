@@ -18,8 +18,11 @@ class SearchViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
 
-        // Do any additional setup after loading the view.
+        // 現在地を取得する
+        readCurrentLocation()
     }
+    
+    
     
 
 }
@@ -63,10 +66,13 @@ extension SearchViewController {
 extension SearchViewController {
     
     // 現在地再取得ボタンが押された時の処理
-    @IBAction private func reloadCurrentLocation(_ sender: Any) {
+    @IBAction func reloadCurrentLocation(_ sender: Any) {
+        // 現在地を取得する
+        readCurrentLocation()
     }
-    
+
     // 現在地周辺のレストランを検索ボタンが押された時の処理
-    @IBAction private func searchRestaurantsAround(_ sender: Any) {
+    @IBAction func searchRestaurantsAround(_ sender: Any) {
     }
+
 }
