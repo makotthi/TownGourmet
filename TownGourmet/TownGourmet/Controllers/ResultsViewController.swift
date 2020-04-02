@@ -1,5 +1,3 @@
-
-
 import UIKit
 
 class ResultsViewController: UIViewController {
@@ -9,6 +7,5 @@ class ResultsViewController: UIViewController {
 
         // Do any additional setup after loading the view.
     }
-    
 
 }

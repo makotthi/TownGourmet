@@ -60,4 +60,3 @@ extension CurrentLocationReader: CLLocationManagerDelegate {
         onCompleteReadCurrentLocation?(.failure(error))
     }
 }
-
