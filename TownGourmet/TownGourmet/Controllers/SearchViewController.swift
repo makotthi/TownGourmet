@@ -66,13 +66,13 @@ extension SearchViewController {
 extension SearchViewController {
     
     // 現在地再取得ボタンが押された時の処理
-    @IBAction func reloadCurrentLocation(_ sender: Any) {
+    @IBAction private func reloadCurrentLocation(_ sender: Any) {
         // 現在地を取得する
         readCurrentLocation()
     }
 
     // 現在地周辺のレストランを検索ボタンが押された時の処理
-    @IBAction func searchRestaurantsAround(_ sender: Any) {
+    @IBAction private func searchRestaurantsAround(_ sender: Any) {
     }
 
 }
