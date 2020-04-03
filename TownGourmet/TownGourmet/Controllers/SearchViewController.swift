@@ -8,7 +8,7 @@ class SearchViewController: UIViewController {
     @IBOutlet private weak var searchRestaurantsAroundButton: UIButton!
 
     // 現在地を取得するクラス
-    private var currentLocationReader = CurrentLocationReader()
+    private let currentLocationReader = CurrentLocationReader()
 
     // 緯度と経度
     private var latitude: Double?
