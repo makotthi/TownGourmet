@@ -14,7 +14,28 @@
                     <view key="view" contentMode="scaleToFill" id="zVT-aN-b6X">
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <segmentedControl opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="top" segmentControlStyle="plain" selectedSegmentIndex="0" translatesAutoresizingMaskIntoConstraints="NO" id="awI-L8-rpz">
+                                <rect key="frame" x="161.5" y="44" width="91" height="32"/>
+                                <segments>
+                                    <segment title="一覧"/>
+                                    <segment title="地図"/>
+                                </segments>
+                            </segmentedControl>
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="qLF-0s-9KO">
+                                <rect key="frame" x="0.0" y="75" width="414" height="787"/>
+                                <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
+                            </view>
+                        </subviews>
                         <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
+                        <constraints>
+                            <constraint firstItem="awI-L8-rpz" firstAttribute="top" secondItem="sit-tA-9jv" secondAttribute="top" id="MRj-aU-PDc"/>
+                            <constraint firstItem="awI-L8-rpz" firstAttribute="centerX" secondItem="zVT-aN-b6X" secondAttribute="centerX" id="S5c-EV-jrH"/>
+                            <constraint firstItem="qLF-0s-9KO" firstAttribute="top" secondItem="awI-L8-rpz" secondAttribute="bottom" id="WPQ-yx-KtF"/>
+                            <constraint firstItem="sit-tA-9jv" firstAttribute="bottom" secondItem="qLF-0s-9KO" secondAttribute="bottom" id="Zni-cM-puj"/>
+                            <constraint firstItem="sit-tA-9jv" firstAttribute="trailing" secondItem="qLF-0s-9KO" secondAttribute="trailing" id="mqL-z0-471"/>
+                            <constraint firstItem="qLF-0s-9KO" firstAttribute="leading" secondItem="sit-tA-9jv" secondAttribute="leading" id="vuY-ed-tWC"/>
+                        </constraints>
                         <viewLayoutGuide key="safeArea" id="sit-tA-9jv"/>
                     </view>
                     <navigationItem key="navigationItem" id="ybD-Hb-0kb"/>
