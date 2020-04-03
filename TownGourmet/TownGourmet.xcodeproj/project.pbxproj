@@ -15,6 +15,7 @@
 		0E87F0BA2434EAC800D6CE98 /* ResultsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0E87F0B92434EAC800D6CE98 /* ResultsViewController.swift */; };
 		0E87F0BC2434EB4600D6CE98 /* DetailsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0E87F0BB2434EB4600D6CE98 /* DetailsViewController.swift */; };
 		0E87F0BE2434EB9B00D6CE98 /* FavoritesViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0E87F0BD2434EB9B00D6CE98 /* FavoritesViewController.swift */; };
+		0E87F0C324364FEE00D6CE98 /* CurrentLocationReader.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0E87F0C224364FEE00D6CE98 /* CurrentLocationReader.swift */; };
 		0ECD71F6242FB04200A99AED /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0ECD71F5242FB04200A99AED /* AppDelegate.swift */; };
 		0ECD71F8242FB04200A99AED /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0ECD71F7242FB04200A99AED /* SceneDelegate.swift */; };
 		0ECD71FF242FB04200A99AED /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 0ECD71FD242FB04200A99AED /* Main.storyboard */; };
@@ -32,6 +33,7 @@
 		0E87F0B92434EAC800D6CE98 /* ResultsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ResultsViewController.swift; sourceTree = "<group>"; };
 		0E87F0BB2434EB4600D6CE98 /* DetailsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DetailsViewController.swift; sourceTree = "<group>"; };
 		0E87F0BD2434EB9B00D6CE98 /* FavoritesViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FavoritesViewController.swift; sourceTree = "<group>"; };
+		0E87F0C224364FEE00D6CE98 /* CurrentLocationReader.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CurrentLocationReader.swift; sourceTree = "<group>"; };
 		0ECD71F2242FB04200A99AED /* TownGourmet.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = TownGourmet.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		0ECD71F5242FB04200A99AED /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		0ECD71F7242FB04200A99AED /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -67,6 +69,22 @@
 			path = Controllers;
 			sourceTree = "<group>";
 		};
+		0E87F0BF24364F8200D6CE98 /* Models */ = {
+			isa = PBXGroup;
+			children = (
+				0E87F0C024364F9400D6CE98 /* Location */,
+			);
+			path = Models;
+			sourceTree = "<group>";
+		};
+		0E87F0C024364F9400D6CE98 /* Location */ = {
+			isa = PBXGroup;
+			children = (
+				0E87F0C224364FEE00D6CE98 /* CurrentLocationReader.swift */,
+			);
+			path = Location;
+			sourceTree = "<group>";
+		};
 		0ECD71E9242FB04200A99AED = {
 			isa = PBXGroup;
 			children = (
@@ -88,6 +106,7 @@
 		0ECD71F4242FB04200A99AED /* TownGourmet */ = {
 			isa = PBXGroup;
 			children = (
+				0E87F0BF24364F8200D6CE98 /* Models */,
 				0E87F0B62434E98300D6CE98 /* Controllers */,
 				0ECD71F5242FB04200A99AED /* AppDelegate.swift */,
 				0ECD71F7242FB04200A99AED /* SceneDelegate.swift */,
@@ -132,6 +151,7 @@
 				0ECD71EF242FB04200A99AED /* Frameworks */,
 				0ECD71F0242FB04200A99AED /* Resources */,
 				FD72F47EF3D69D072C864160 /* [CP] Embed Pods Frameworks */,
+				0E87F0C424365B1700D6CE98 /* Swift Lint */,
 			);
 			buildRules = (
 			);
@@ -193,6 +213,24 @@
 /* End PBXResourcesBuildPhase section */
 
 /* Begin PBXShellScriptBuildPhase section */
+		0E87F0C424365B1700D6CE98 /* Swift Lint */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+			);
+			inputPaths = (
+			);
+			name = "Swift Lint";
+			outputFileListPaths = (
+			);
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "${PODS_ROOT}/SwiftLint/swiftlint autocorrect\n";
+		};
 		84EFA83F43F35F373DCFABF9 /* [CP] Check Pods Manifest.lock */ = {
 			isa = PBXShellScriptBuildPhase;
 			buildActionMask = 2147483647;
@@ -242,6 +280,7 @@
 				0ECD71F6242FB04200A99AED /* AppDelegate.swift in Sources */,
 				0ECD71F8242FB04200A99AED /* SceneDelegate.swift in Sources */,
 				0E87F0BA2434EAC800D6CE98 /* ResultsViewController.swift in Sources */,
+				0E87F0C324364FEE00D6CE98 /* CurrentLocationReader.swift in Sources */,
 				0E87F0BE2434EB9B00D6CE98 /* FavoritesViewController.swift in Sources */,
 				0E87F0BC2434EB4600D6CE98 /* DetailsViewController.swift in Sources */,
 			);
