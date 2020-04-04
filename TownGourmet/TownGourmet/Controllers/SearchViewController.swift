@@ -22,6 +22,9 @@ class SearchViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
 
+        // レストランのカテゴリーデータを受け取る
+        apiClient.receiveCategorys()
+
         // 現在地を取得する
         readCurrentLocation()
     }

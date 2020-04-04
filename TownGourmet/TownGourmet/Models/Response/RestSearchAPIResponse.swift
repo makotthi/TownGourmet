@@ -49,6 +49,7 @@ struct StoreData: Codable {
     let tel: String?
     let opentime: String?
     let url: String?
+    let code: StoreCodeData?
 
     // 店舗アクセスを設定
     func routeText() -> String {
@@ -68,6 +69,7 @@ struct StoreData: Codable {
         }
         return accessText
     }
+
 }
 // 店舗画像のデータを格納する
 struct StoreImageData: Codable {
@@ -80,4 +82,8 @@ struct StoreAccessData: Codable {
     let station: String?
     let station_exit: String?
     let walk: String?
+}
+
+struct StoreCodeData: Codable {
+    let category_name_l: [String]?
 }
