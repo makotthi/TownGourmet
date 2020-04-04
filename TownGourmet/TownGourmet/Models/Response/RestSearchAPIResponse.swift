@@ -81,4 +81,3 @@ struct StoreAccessData: Codable {
     let station_exit: String?
     let walk: String?
 }
-

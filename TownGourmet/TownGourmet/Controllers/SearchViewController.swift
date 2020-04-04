@@ -9,10 +9,15 @@ class SearchViewController: UIViewController {
 
     // 現在地を取得するクラス
     private let currentLocationReader = CurrentLocationReader()
+    // APIクライアント
+    private let apiClient = APIClient()
 
     // 緯度と経度
     private var latitude: Double?
     private var longitude: Double?
+
+    // レストランのデータを保持する
+    private var restaurantList: [StoreData] = []
 
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -56,6 +61,50 @@ extension SearchViewController {
     }
 }
 
+// MARK: - API
+extension SearchViewController {
+    private func searchRestaurant() {
+        // クロージャの定義
+        let onCompleteReceiveRestaurant = {[unowned self] (result: Result<StoreDataArray, Error>) in
+            switch result {
+            // レストランのデータを受け取れた時
+            case .success(let storeDataArray):
+                // 画面遷移する
+                self.showResults(storeDataArray)
+
+            // 通信に失敗した時
+            case .failure(let error):
+                print(error)
+            }
+        }
+
+        guard let latitude = latitude, let longitude = longitude else {
+            return
+        }
+        // 緯度経度からレストランを検索
+        apiClient.searchRestaurants(latitude: latitude, longitude: longitude, onCompleteReceiveRestaurant)
+    }
+}
+
+// MARK: - Screen transition
+extension SearchViewController {
+    // 画面遷移
+    private func showResults(_ storeDataArray: StoreDataArray) {
+        // レストランデータのリストを初期化
+        restaurantList = storeDataArray.rest ?? []
+
+        performSegue(withIdentifier: "goNextView", sender: nil)
+    }
+
+    // 遷移先にレストランのデータを渡す
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+        // 次の画面のインスタンスを格納
+        if let nextViewController = segue.destination as? ResultsViewController {
+            nextViewController.restaurantList = self.restaurantList
+        }
+    }
+}
+
 // MARK: - Action
 extension SearchViewController {
 
@@ -67,6 +116,8 @@ extension SearchViewController {
 
     // 現在地周辺のレストランを検索ボタンが押された時の処理
     @IBAction private func searchRestaurantsAround(_ sender: Any) {
+        // レストランを検索する
+        searchRestaurant()
     }
 
 }
