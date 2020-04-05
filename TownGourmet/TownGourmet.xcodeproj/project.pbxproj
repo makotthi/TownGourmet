@@ -15,6 +15,9 @@
 		0E1AC4EA2438F14B005189B8 /* CategoryLargeSearchAPIResponse.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0E1AC4E92438F14B005189B8 /* CategoryLargeSearchAPIResponse.swift */; };
 		0E1AC4ED2438FE62005189B8 /* UIImageViewExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0E1AC4EC2438FE62005189B8 /* UIImageViewExtension.swift */; };
 		0E1AC4EF2438FE77005189B8 /* UIViewExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0E1AC4EE2438FE77005189B8 /* UIViewExtension.swift */; };
+		0E3CBA842439A34F00449DC1 /* ResultsMap.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 0E3CBA832439A34F00449DC1 /* ResultsMap.storyboard */; };
+		0E3CBA862439AE7D00449DC1 /* MKPointAnnotationExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0E3CBA852439AE7D00449DC1 /* MKPointAnnotationExtension.swift */; };
+		0E3CBA882439B4B300449DC1 /* MKMapViewExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0E3CBA872439B4B300449DC1 /* MKMapViewExtension.swift */; };
 		0E87F0A3243325E300D6CE98 /* Search.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 0E87F0A1243325E300D6CE98 /* Search.storyboard */; };
 		0E87F0A62433294200D6CE98 /* Favorites.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 0E87F0A42433294200D6CE98 /* Favorites.storyboard */; };
 		0E87F0B22434E71700D6CE98 /* Details.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 0E87F0B02434E71700D6CE98 /* Details.storyboard */; };
@@ -43,6 +46,9 @@
 		0E1AC4E92438F14B005189B8 /* CategoryLargeSearchAPIResponse.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CategoryLargeSearchAPIResponse.swift; sourceTree = "<group>"; };
 		0E1AC4EC2438FE62005189B8 /* UIImageViewExtension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UIImageViewExtension.swift; sourceTree = "<group>"; };
 		0E1AC4EE2438FE77005189B8 /* UIViewExtension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UIViewExtension.swift; sourceTree = "<group>"; };
+		0E3CBA832439A34F00449DC1 /* ResultsMap.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = ResultsMap.storyboard; sourceTree = "<group>"; };
+		0E3CBA852439AE7D00449DC1 /* MKPointAnnotationExtension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MKPointAnnotationExtension.swift; sourceTree = "<group>"; };
+		0E3CBA872439B4B300449DC1 /* MKMapViewExtension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MKMapViewExtension.swift; sourceTree = "<group>"; };
 		0E87F0A2243325E300D6CE98 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Search.storyboard; sourceTree = "<group>"; };
 		0E87F0A52433294200D6CE98 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Favorites.storyboard; sourceTree = "<group>"; };
 		0E87F0B12434E71700D6CE98 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Details.storyboard; sourceTree = "<group>"; };
@@ -107,6 +113,7 @@
 		0E1AC4E42438DD0A005189B8 /* ResultsMap */ = {
 			isa = PBXGroup;
 			children = (
+				0E3CBA832439A34F00449DC1 /* ResultsMap.storyboard */,
 				0E1AC4E52438DD2A005189B8 /* ResultsMapViewController.swift */,
 			);
 			path = ResultsMap;
@@ -117,6 +124,8 @@
 			children = (
 				0E1AC4EC2438FE62005189B8 /* UIImageViewExtension.swift */,
 				0E1AC4EE2438FE77005189B8 /* UIViewExtension.swift */,
+				0E3CBA852439AE7D00449DC1 /* MKPointAnnotationExtension.swift */,
+				0E3CBA872439B4B300449DC1 /* MKMapViewExtension.swift */,
 			);
 			path = Extensions;
 			sourceTree = "<group>";
@@ -288,6 +297,7 @@
 			files = (
 				0E1AC4E82438DFAE005189B8 /* ResultsList.storyboard in Resources */,
 				0ECD7204242FB04700A99AED /* LaunchScreen.storyboard in Resources */,
+				0E3CBA842439A34F00449DC1 /* ResultsMap.storyboard in Resources */,
 				0E87F0B22434E71700D6CE98 /* Details.storyboard in Resources */,
 				0E87F0B52434E76200D6CE98 /* Results.storyboard in Resources */,
 				0E1AC4E32438CBBF005189B8 /* RestaurantTableViewCell.xib in Resources */,
@@ -367,6 +377,7 @@
 				0E1AC4EF2438FE77005189B8 /* UIViewExtension.swift in Sources */,
 				0E87F0B82434E9D200D6CE98 /* SearchViewController.swift in Sources */,
 				0ECD71F6242FB04200A99AED /* AppDelegate.swift in Sources */,
+				0E3CBA882439B4B300449DC1 /* MKMapViewExtension.swift in Sources */,
 				0ECD71F8242FB04200A99AED /* SceneDelegate.swift in Sources */,
 				0E1AC4E22438CBBF005189B8 /* RestaurantTableViewCell.swift in Sources */,
 				0E1AC4E62438DD2A005189B8 /* ResultsMapViewController.swift in Sources */,
@@ -374,6 +385,7 @@
 				0E87F0BA2434EAC800D6CE98 /* ResultsViewController.swift in Sources */,
 				0E1AC4DE2438CAE0005189B8 /* ResultsListViewController.swift in Sources */,
 				0E1AC4ED2438FE62005189B8 /* UIImageViewExtension.swift in Sources */,
+				0E3CBA862439AE7D00449DC1 /* MKPointAnnotationExtension.swift in Sources */,
 				0E87F0C324364FEE00D6CE98 /* CurrentLocationReader.swift in Sources */,
 				0E1AC4EA2438F14B005189B8 /* CategoryLargeSearchAPIResponse.swift in Sources */,
 				0E87F0BE2434EB9B00D6CE98 /* FavoritesViewController.swift in Sources */,
