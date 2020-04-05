@@ -14,11 +14,59 @@
                     <view key="view" contentMode="scaleToFill" id="zVT-aN-b6X">
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <segmentedControl opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="top" segmentControlStyle="plain" selectedSegmentIndex="0" translatesAutoresizingMaskIntoConstraints="NO" id="awI-L8-rpz">
+                                <rect key="frame" x="161.5" y="44" width="91" height="32"/>
+                                <segments>
+                                    <segment title="一覧"/>
+                                    <segment title="地図"/>
+                                </segments>
+                            </segmentedControl>
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="net-6Y-q6V">
+                                <rect key="frame" x="0.0" y="75" width="414" height="787"/>
+                                <subviews>
+                                    <containerView opaque="NO" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="9F7-Sw-ziu">
+                                        <rect key="frame" x="0.0" y="0.0" width="414" height="787"/>
+                                        <connections>
+                                            <segue destination="xk3-pA-ZIK" kind="embed" identifier="showList" id="IJ1-tu-q5U"/>
+                                        </connections>
+                                    </containerView>
+                                    <containerView opaque="NO" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="dMa-Vw-le7">
+                                        <rect key="frame" x="0.0" y="0.0" width="414" height="787"/>
+                                        <connections>
+                                            <segue destination="ZMQ-R2-HDN" kind="embed" id="3Na-Ue-Hnf"/>
+                                        </connections>
+                                    </containerView>
+                                </subviews>
+                                <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
+                                <constraints>
+                                    <constraint firstItem="dMa-Vw-le7" firstAttribute="top" secondItem="net-6Y-q6V" secondAttribute="top" id="3aQ-EF-ewN"/>
+                                    <constraint firstAttribute="trailing" secondItem="9F7-Sw-ziu" secondAttribute="trailing" id="5Ud-Kp-bzs"/>
+                                    <constraint firstAttribute="trailing" secondItem="dMa-Vw-le7" secondAttribute="trailing" id="8WW-Ee-Ttl"/>
+                                    <constraint firstItem="9F7-Sw-ziu" firstAttribute="leading" secondItem="net-6Y-q6V" secondAttribute="leading" id="8eU-mb-GPc"/>
+                                    <constraint firstAttribute="bottom" secondItem="dMa-Vw-le7" secondAttribute="bottom" id="NZ5-Dr-B7s"/>
+                                    <constraint firstItem="dMa-Vw-le7" firstAttribute="leading" secondItem="net-6Y-q6V" secondAttribute="leading" id="Nz0-hU-BsH"/>
+                                    <constraint firstItem="9F7-Sw-ziu" firstAttribute="top" secondItem="net-6Y-q6V" secondAttribute="top" id="ciM-N8-ZoK"/>
+                                    <constraint firstAttribute="bottom" secondItem="9F7-Sw-ziu" secondAttribute="bottom" id="xCE-vq-gHT"/>
+                                </constraints>
+                            </view>
+                        </subviews>
                         <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
+                        <constraints>
+                            <constraint firstItem="sit-tA-9jv" firstAttribute="bottom" secondItem="net-6Y-q6V" secondAttribute="bottom" id="09B-ja-Dwp"/>
+                            <constraint firstItem="net-6Y-q6V" firstAttribute="top" secondItem="awI-L8-rpz" secondAttribute="bottom" id="5YA-Sb-kf6"/>
+                            <constraint firstItem="awI-L8-rpz" firstAttribute="top" secondItem="sit-tA-9jv" secondAttribute="top" id="MRj-aU-PDc"/>
+                            <constraint firstItem="net-6Y-q6V" firstAttribute="leading" secondItem="sit-tA-9jv" secondAttribute="leading" id="QWl-H6-E0s"/>
+                            <constraint firstItem="awI-L8-rpz" firstAttribute="centerX" secondItem="zVT-aN-b6X" secondAttribute="centerX" id="S5c-EV-jrH"/>
+                            <constraint firstItem="sit-tA-9jv" firstAttribute="trailing" secondItem="net-6Y-q6V" secondAttribute="trailing" id="iBi-Pt-ITI"/>
+                        </constraints>
                         <viewLayoutGuide key="safeArea" id="sit-tA-9jv"/>
                     </view>
                     <navigationItem key="navigationItem" id="ybD-Hb-0kb"/>
                     <connections>
+                        <outlet property="resultsListViewContainer" destination="9F7-Sw-ziu" id="VDD-s1-x8v"/>
+                        <outlet property="resultsMapViewContainer" destination="dMa-Vw-le7" id="df6-eC-U4c"/>
+                        <outlet property="resultsView" destination="net-6Y-q6V" id="o9g-tp-GLJ"/>
                         <segue destination="8S1-sN-qzF" kind="show" identifier="goNextView" id="uxE-0G-Jm2"/>
                     </connections>
                 </viewController>
@@ -34,7 +82,38 @@
                 </viewControllerPlaceholder>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="SdV-ZB-vfG" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="2872" y="47"/>
+            <point key="canvasLocation" x="2875" y="47"/>
+        </scene>
+        <!--Results Map View Controller-->
+        <scene sceneID="9V4-mi-1TG">
+            <objects>
+                <viewController id="ZMQ-R2-HDN" customClass="ResultsMapViewController" customModule="TownGourmet" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="cQR-5a-kKO">
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="787"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="map" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="K9W-vY-56N">
+                                <rect key="frame" x="186" y="383" width="34" height="21"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                        </subviews>
+                        <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
+                    </view>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="YAj-Gh-ImM" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="2981" y="444"/>
+        </scene>
+        <!--ResultsList-->
+        <scene sceneID="OQa-cN-ZRu">
+            <objects>
+                <viewControllerPlaceholder storyboardName="ResultsList" id="xk3-pA-ZIK" sceneMemberID="viewController"/>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="v9f-YB-iBk" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="1916" y="767"/>
         </scene>
     </scenes>
 </document>
