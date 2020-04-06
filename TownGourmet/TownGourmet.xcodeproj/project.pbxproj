@@ -18,6 +18,7 @@
 		0E3CBA842439A34F00449DC1 /* ResultsMap.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 0E3CBA832439A34F00449DC1 /* ResultsMap.storyboard */; };
 		0E3CBA862439AE7D00449DC1 /* MKPointAnnotationExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0E3CBA852439AE7D00449DC1 /* MKPointAnnotationExtension.swift */; };
 		0E3CBA882439B4B300449DC1 /* MKMapViewExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0E3CBA872439B4B300449DC1 /* MKMapViewExtension.swift */; };
+		0E3CBA8A243ACBE400449DC1 /* DetailsViewContainer.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0E3CBA89243ACBE400449DC1 /* DetailsViewContainer.swift */; };
 		0E87F0A3243325E300D6CE98 /* Search.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 0E87F0A1243325E300D6CE98 /* Search.storyboard */; };
 		0E87F0A62433294200D6CE98 /* Favorites.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 0E87F0A42433294200D6CE98 /* Favorites.storyboard */; };
 		0E87F0B22434E71700D6CE98 /* Details.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 0E87F0B02434E71700D6CE98 /* Details.storyboard */; };
@@ -49,6 +50,7 @@
 		0E3CBA832439A34F00449DC1 /* ResultsMap.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = ResultsMap.storyboard; sourceTree = "<group>"; };
 		0E3CBA852439AE7D00449DC1 /* MKPointAnnotationExtension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MKPointAnnotationExtension.swift; sourceTree = "<group>"; };
 		0E3CBA872439B4B300449DC1 /* MKMapViewExtension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MKMapViewExtension.swift; sourceTree = "<group>"; };
+		0E3CBA89243ACBE400449DC1 /* DetailsViewContainer.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DetailsViewContainer.swift; sourceTree = "<group>"; };
 		0E87F0A2243325E300D6CE98 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Search.storyboard; sourceTree = "<group>"; };
 		0E87F0A52433294200D6CE98 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Favorites.storyboard; sourceTree = "<group>"; };
 		0E87F0B12434E71700D6CE98 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Details.storyboard; sourceTree = "<group>"; };
@@ -138,6 +140,7 @@
 				0E87F0B72434E9D200D6CE98 /* SearchViewController.swift */,
 				0E87F0B92434EAC800D6CE98 /* ResultsViewController.swift */,
 				0E87F0BB2434EB4600D6CE98 /* DetailsViewController.swift */,
+				0E3CBA89243ACBE400449DC1 /* DetailsViewContainer.swift */,
 				0E87F0BD2434EB9B00D6CE98 /* FavoritesViewController.swift */,
 			);
 			path = Controllers;
@@ -377,6 +380,7 @@
 				0E1AC4EF2438FE77005189B8 /* UIViewExtension.swift in Sources */,
 				0E87F0B82434E9D200D6CE98 /* SearchViewController.swift in Sources */,
 				0ECD71F6242FB04200A99AED /* AppDelegate.swift in Sources */,
+				0E3CBA8A243ACBE400449DC1 /* DetailsViewContainer.swift in Sources */,
 				0E3CBA882439B4B300449DC1 /* MKMapViewExtension.swift in Sources */,
 				0ECD71F8242FB04200A99AED /* SceneDelegate.swift in Sources */,
 				0E1AC4E22438CBBF005189B8 /* RestaurantTableViewCell.swift in Sources */,

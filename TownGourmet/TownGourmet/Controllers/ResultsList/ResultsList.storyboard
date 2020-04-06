@@ -41,11 +41,22 @@
                     </view>
                     <connections>
                         <outlet property="resultsTableView" destination="RrN-Js-Fji" id="xvK-xE-NUx"/>
+                        <segue destination="2fL-HU-Pom" kind="show" identifier="goNextView" id="aae-pR-j63"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="un0-fK-W7v" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="2110" y="774"/>
+        </scene>
+        <!--Details-->
+        <scene sceneID="Mwe-l6-W5I">
+            <objects>
+                <viewControllerPlaceholder storyboardName="Details" id="2fL-HU-Pom" sceneMemberID="viewController">
+                    <navigationItem key="navigationItem" id="Ss5-6i-sHj"/>
+                </viewControllerPlaceholder>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="3Lf-0W-wKo" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="2965" y="773"/>
         </scene>
     </scenes>
 </document>

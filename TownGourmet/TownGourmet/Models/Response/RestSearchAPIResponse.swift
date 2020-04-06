@@ -52,6 +52,7 @@ struct StoreData: Codable {
     let code: StoreCodeData?
     let latitude: String?
     let longitude: String?
+    let pr: StorePR?
 
     // 店舗アクセスを設定
     func routeText() -> String {
@@ -88,4 +89,8 @@ struct StoreAccessData: Codable {
 
 struct StoreCodeData: Codable {
     let category_name_l: [String]?
+}
+
+struct StorePR: Codable {
+    let pr_long: String?
 }
