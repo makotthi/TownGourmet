@@ -71,7 +71,7 @@
                                                     </textField>
                                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="D9N-kD-Fj7">
                                                         <rect key="frame" x="0.0" y="126" width="398" height="38"/>
-                                                        <fontDescription key="fontDescription" type="system" pointSize="21"/>
+                                                        <fontDescription key="fontDescription" type="system" pointSize="20"/>
                                                         <state key="normal" title="入力した場所周辺のレストランを検索"/>
                                                         <connections>
                                                             <action selector="searchRestaurantLocationWord:" destination="41T-rd-aNN" eventType="touchUpInside" id="lDt-xb-2nn"/>

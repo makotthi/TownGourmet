@@ -33,8 +33,11 @@ class SearchViewController: UIViewController {
     private var restaurantList: [StoreData] = []
 
     // カテゴリーのデータを保持する
-    private var categoryArray: [String] = []
-    private var categoryDictionary: [String: String] = [:]
+    private var categoryArray: [String] = ["選択しない"]
+    private var categoryCode: [String: String] = [:]
+
+    // カテゴリーを表示するpickerView
+    private var categoryPickerView = UIPickerView()
 
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -43,6 +46,17 @@ class SearchViewController: UIViewController {
         locationTextField.delegate = self
         categoryTextField.delegate = self
         keywordTextField.delegate = self
+
+        // pickerViewのデリゲートとデータソースを設定
+        categoryPickerView.delegate = self
+        categoryPickerView.dataSource = self
+
+        // textFieldのinputViewにpickeViewを設定
+        categoryTextField.inputView = categoryPickerView
+        // 初期値を表示
+        categoryTextField.text = categoryArray.first
+        // ツールバーの生成
+        makeToolBar()
 
         // レストランのカテゴリーデータを受け取る
         setCategorys()
@@ -60,6 +74,50 @@ extension SearchViewController: UITextFieldDelegate {
         textField.resignFirstResponder()
 
         return true
+    }
+}
+
+// MARK: - UIPickerViewDataSource
+extension SearchViewController: UIPickerViewDataSource {
+    // PickerViewの列数を設定
+    func numberOfComponents(in pickerView: UIPickerView) -> Int {
+        return 1
+    }
+
+    // PickerViewの行数を設定
+    func pickerView(_ pickerView: UIPickerView, numberOfRowsInComponent component: Int) -> Int {
+        return categoryArray.count
+    }
+}
+
+// MARK: - UIPickerViewDelegate
+extension SearchViewController: UIPickerViewDelegate {
+    // PickerViewの要素を設定
+    func pickerView(_ pickerView: UIPickerView, titleForRow row: Int, forComponent component: Int) -> String? {
+        return categoryArray[row]
+    }
+
+    // PickerViewで選択したものをtextFieldに表示
+    func pickerView(_ pickerView: UIPickerView, didSelectRow row: Int, inComponent component: Int) {
+        categoryTextField.text = categoryArray[row]
+    }
+}
+
+// MARK: - UIToolbar
+extension SearchViewController {
+    // toolBarを生成
+    private func makeToolBar() {
+        let toolbar = UIToolbar(frame: CGRect(x: 0, y: 0, width: view.frame.size.width, height: 35))
+        let spacelItem = UIBarButtonItem(barButtonSystemItem: .flexibleSpace, target: self, action: nil)
+        let doneItem = UIBarButtonItem(barButtonSystemItem: .done, target: self, action: #selector(done))
+        toolbar.setItems([spacelItem, doneItem], animated: true)
+        categoryTextField.inputAccessoryView = toolbar
+    }
+
+    // toolBar関連のメソッド
+    // Doneボタンを押した時の処理
+    @objc private func done() {
+        categoryTextField.endEditing(true)
     }
 }
 
@@ -91,7 +149,7 @@ extension SearchViewController {
                 continue
             }
             self.categoryArray.append(name)
-            self.categoryDictionary[name] = code
+            self.categoryCode[name] = code
         }
     }
 }
@@ -146,6 +204,10 @@ extension SearchViewController {
             }
         }
 
+        guard let category = categoryTextField.text else {
+            return
+        }
+
         var latitudeOptional: Double?
         var longitudeOptional: Double?
         switch mode {
@@ -160,8 +222,9 @@ extension SearchViewController {
         guard let latitude = latitudeOptional, let longitude = longitudeOptional else {
             return
         }
+
         // 緯度経度からレストランを検索
-        apiClient.searchRestaurants(latitude: latitude, longitude: longitude, keyword: keywordTextField.text, onCompleteReceiveRestaurant)
+        apiClient.searchRestaurants(latitude: latitude, longitude: longitude, keyword: keywordTextField.text, category: categoryCode[category], onCompleteReceiveRestaurant)
     }
 }
 
