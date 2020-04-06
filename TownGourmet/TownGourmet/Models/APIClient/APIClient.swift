@@ -45,14 +45,32 @@ class APIClient {
 
 // MARK: - CreateRequestURL
 extension APIClient {
-    func searchRestaurants(latitude: Double, longitude: Double, _ handler: @escaping (Result<StoreDataArray, Error>) -> Void) {
+    func searchRestaurants(latitude: Double, longitude: Double, keyword: String?, _ handler: @escaping (Result<StoreDataArray, Error>) -> Void) {
         // リクエストURLを作成
-        guard let requestURL = URL(string: "https://api.gnavi.co.jp/RestSearchAPI/v3/?keyid=6cf2ac2af697b3358620582d34884f09&latitude=\(latitude)&longitude=\(longitude)&range=5&hit_per_page=100") else {
+        let urlString = "https://api.gnavi.co.jp/RestSearchAPI/v3/?keyid=6cf2ac2af697b3358620582d34884f09&latitude=\(latitude)&longitude=\(longitude)&range=5&hit_per_page=100" + keywordCondition(keyword)
+
+        guard let requestURL = URL(string: urlString) else {
             return
         }
         print(requestURL)
 
         receiveRestaurants(requestURL, handler)
+    }
+
+    private func keywordCondition(_ keyword: String?) -> String {
+        guard let keyword = keyword else {
+            return ""
+        }
+        if keyword == "" {
+            return ""
+        }
+
+        // キーワードをURLエンコードする
+        guard let keywordEncode = keyword.addingPercentEncoding(withAllowedCharacters: .urlQueryAllowed) else {
+            return ""
+        }
+
+        return "&freeword=\(keywordEncode)"
     }
 }
 

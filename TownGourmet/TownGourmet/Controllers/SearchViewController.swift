@@ -161,7 +161,7 @@ extension SearchViewController {
             return
         }
         // 緯度経度からレストランを検索
-        apiClient.searchRestaurants(latitude: latitude, longitude: longitude, onCompleteReceiveRestaurant)
+        apiClient.searchRestaurants(latitude: latitude, longitude: longitude, keyword: keywordTextField.text, onCompleteReceiveRestaurant)
     }
 }
 
