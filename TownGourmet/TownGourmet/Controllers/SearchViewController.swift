@@ -1,4 +1,5 @@
 import UIKit
+import MapKit
 
 class SearchViewController: UIViewController {
 
@@ -7,28 +8,92 @@ class SearchViewController: UIViewController {
     // 現在地周辺のレストランを検索ボタン
     @IBOutlet private weak var searchRestaurantsAroundButton: UIButton!
 
+    // 検索場所を表示するtextField
+    @IBOutlet private weak var locationTextField: UITextField!
+
+    // カテゴリーを表示するtextField
+    @IBOutlet private weak var categoryTextField: UITextField!
+    // キーワードを表示するtextField
+    @IBOutlet private weak var keywordTextField: UITextField!
+
     // 現在地を取得するクラス
     private let currentLocationReader = CurrentLocationReader()
     // APIクライアント
     private let apiClient = APIClient()
 
-    // 緯度と経度
-    private var latitude: Double?
-    private var longitude: Double?
+    // 現在地の緯度と経度
+    private var currentLatitude: Double?
+    private var currentLongitude: Double?
+
+    // 検索場所の緯度と経度
+    private var locationLatitude: Double?
+    private var locationLongitude: Double?
 
     // レストランのデータを保持する
     private var restaurantList: [StoreData] = []
 
+    // カテゴリーのデータを保持する
+    private var categoryArray: [String] = []
+    private var categoryDictionary: [String: String] = [:]
+
     override func viewDidLoad() {
         super.viewDidLoad()
 
+        // テキストフィールドのデリゲートを設定
+        locationTextField.delegate = self
+        categoryTextField.delegate = self
+        keywordTextField.delegate = self
+
         // レストランのカテゴリーデータを受け取る
-        apiClient.receiveCategorys()
+        setCategorys()
 
         // 現在地を取得する
         readCurrentLocation()
     }
+}
 
+// MARK: - UITextFieldDelegate
+extension SearchViewController: UITextFieldDelegate {
+    // 完了ボタンがタップされた時の処理
+    func textFieldShouldReturn(_ textField: UITextField) -> Bool {
+        // キーボードを閉じる
+        textField.resignFirstResponder()
+
+        return true
+    }
+}
+
+// MARK: - Setting category data
+extension SearchViewController {
+    // カテゴリーを受診して変数に保存する
+    private func setCategorys() {
+        apiClient.receiveCategorys({[unowned self] (result: Result<CategoryDataArray, Error>) in
+            switch result {
+            // カテゴリーのデータを受け取れた時
+            case .success(let categoryDataArray):
+                // 画面遷移する
+                self.setDataInArrayAndDictionary(data: categoryDataArray)
+
+            // 通信に失敗した時
+            case .failure(let error):
+                print(error)
+            }
+        })
+    }
+
+    private func setDataInArrayAndDictionary(data: CategoryDataArray) {
+        guard let categoryArray = data.category_l else {
+            return
+        }
+
+        for item in categoryArray {
+            guard let name = item.category_l_name, let code = item.category_l_code else {
+                continue
+            }
+            self.categoryArray.append(name)
+            self.categoryDictionary[name] = code
+        }
+    }
 }
 
 // MARK: - ReadCurrentLocation
@@ -45,8 +110,8 @@ extension SearchViewController {
             // 位置情報の取得に成功した時
             case .success(let latitude, let longitude):
                 // 緯度と経度を受け取る
-                self.latitude = latitude
-                self.longitude = longitude
+                self.currentLatitude = latitude
+                self.currentLongitude = longitude
                 // 検索ボタンを有効にする
                 self.searchRestaurantsAroundButton.isEnabled = true
 
@@ -58,15 +123,15 @@ extension SearchViewController {
             // 現在地再取得ボタンを有効にする
             self.reloadCurrentLocationButton.isEnabled = true
 
-            print(self.latitude)
-            print(self.longitude)
+            print(self.currentLatitude)
+            print(self.currentLongitude)
         }
     }
 }
 
 // MARK: - API
 extension SearchViewController {
-    private func searchRestaurant() {
+    private func searchRestaurant(mode: SearchMode) {
         // クロージャの定義
         let onCompleteReceiveRestaurant = {[unowned self] (result: Result<StoreDataArray, Error>) in
             switch result {
@@ -81,7 +146,18 @@ extension SearchViewController {
             }
         }
 
-        guard let latitude = latitude, let longitude = longitude else {
+        var latitudeOptional: Double?
+        var longitudeOptional: Double?
+        switch mode {
+        case .currentLocation:
+            latitudeOptional = currentLatitude
+            longitudeOptional = currentLongitude
+        case .locationWord:
+            latitudeOptional = locationLatitude
+            longitudeOptional = locationLongitude
+        }
+
+        guard let latitude = latitudeOptional, let longitude = longitudeOptional else {
             return
         }
         // 緯度経度からレストランを検索
@@ -120,7 +196,39 @@ extension SearchViewController {
     // 現在地周辺のレストランを検索ボタンが押された時の処理
     @IBAction private func searchRestaurantsAround(_ sender: Any) {
         // レストランを検索する
-        searchRestaurant()
+        searchRestaurant(mode: .currentLocation)
     }
 
+    // 入力場所周辺のレストランを検索ボタンが押された時の処理
+    @IBAction private func searchRestaurantLocationWord(_ sender: Any) {
+        // 入力地点の緯度と経度を受け取る
+        readLocationCoordinate()
+    }
+
+}
+
+// MARK: - Read location Coordinate
+extension SearchViewController {
+    private func readLocationCoordinate() {
+        let geocoder = CLGeocoder()
+
+        guard let keyword = locationTextField.text else {
+            return
+        }
+
+        // 緯度と経度を検索し、変数に代入する
+        geocoder.geocodeAddressString(keyword, completionHandler: {(placemarks, _) in
+            if let coordinate = placemarks?.first?.location?.coordinate {
+                self.locationLatitude = coordinate.latitude
+                self.locationLongitude = coordinate.longitude
+
+                // レストランを検索する
+                self.searchRestaurant(mode: .locationWord)
+            }
+        })
+    }
+}
+
+enum SearchMode {
+    case currentLocation, locationWord
 }

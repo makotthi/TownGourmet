@@ -58,7 +58,7 @@ extension APIClient {
 
 // MARK: - Receive Restaurant Category
 extension APIClient {
-    func receiveCategorys() {
+    func receiveCategorys(_ handler: @escaping (Result<CategoryDataArray, Error>) -> Void) {
         // リクエストURLを作成
         guard let requestURL = URL(string: "https://api.gnavi.co.jp/master/CategoryLargeSearchAPI/v3/?keyid=6cf2ac2af697b3358620582d34884f09") else {
             return
@@ -90,7 +90,8 @@ extension APIClient {
                 // 受け取ったjsonデータをパースして格納
                 let json = try decoder.decode(CategoryDataArray.self, from: data)
 
-                RestaurantCategory.setData(json)
+                // クロージャを実行
+                handler(.success(json))
 
             } catch {
                 print("カテゴリーデータの解析に失敗")
