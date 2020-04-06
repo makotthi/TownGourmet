@@ -45,20 +45,46 @@ class APIClient {
 
 // MARK: - CreateRequestURL
 extension APIClient {
-    func searchRestaurants(latitude: Double, longitude: Double, _ handler: @escaping (Result<StoreDataArray, Error>) -> Void) {
+    func searchRestaurants(latitude: Double, longitude: Double, keyword: String?, category: String?, _ handler: @escaping (Result<StoreDataArray, Error>) -> Void) {
         // リクエストURLを作成
-        guard let requestURL = URL(string: "https://api.gnavi.co.jp/RestSearchAPI/v3/?keyid=6cf2ac2af697b3358620582d34884f09&latitude=\(latitude)&longitude=\(longitude)&range=5&hit_per_page=100") else {
+        let urlString = "https://api.gnavi.co.jp/RestSearchAPI/v3/?keyid=6cf2ac2af697b3358620582d34884f09&latitude=\(latitude)&longitude=\(longitude)&range=5&hit_per_page=100" + keywordCondition(keyword) + categoryCondition(category)
+
+        guard let requestURL = URL(string: urlString) else {
             return
         }
         print(requestURL)
 
         receiveRestaurants(requestURL, handler)
     }
+
+    private func keywordCondition(_ keyword: String?) -> String {
+        guard let keyword = keyword else {
+            return ""
+        }
+        if keyword == "" {
+            return ""
+        }
+
+        // キーワードをURLエンコードする
+        guard let keywordEncode = keyword.addingPercentEncoding(withAllowedCharacters: .urlQueryAllowed) else {
+            return ""
+        }
+
+        return "&freeword=\(keywordEncode)"
+    }
+
+    private func categoryCondition(_ category: String?) -> String {
+        guard let category = category else {
+            return ""
+        }
+
+        return "&category_l=\(category)"
+    }
 }
 
 // MARK: - Receive Restaurant Category
 extension APIClient {
-    func receiveCategorys() {
+    func receiveCategorys(_ handler: @escaping (Result<CategoryDataArray, Error>) -> Void) {
         // リクエストURLを作成
         guard let requestURL = URL(string: "https://api.gnavi.co.jp/master/CategoryLargeSearchAPI/v3/?keyid=6cf2ac2af697b3358620582d34884f09") else {
             return
@@ -90,7 +116,8 @@ extension APIClient {
                 // 受け取ったjsonデータをパースして格納
                 let json = try decoder.decode(CategoryDataArray.self, from: data)
 
-                RestaurantCategory.setData(json)
+                // クロージャを実行
+                handler(.success(json))
 
             } catch {
                 print("カテゴリーデータの解析に失敗")

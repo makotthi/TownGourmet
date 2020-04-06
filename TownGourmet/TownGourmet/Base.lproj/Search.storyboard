@@ -15,30 +15,157 @@
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="fjv-Gp-mPW">
-                                <rect key="frame" x="161" y="192" width="92" height="30"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <state key="normal" title="現在地を取得"/>
-                                <connections>
-                                    <action selector="reloadCurrentLocation:" destination="41T-rd-aNN" eventType="touchUpInside" id="GXU-fu-Wwd"/>
-                                </connections>
-                            </button>
-                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="vCc-nD-W2z">
-                                <rect key="frame" x="100" y="263" width="215" height="30"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <state key="normal" title="現在地周辺のレストランを検索"/>
-                                <connections>
-                                    <action selector="searchRestaurantsAround:" destination="41T-rd-aNN" eventType="touchUpInside" id="8Eb-KW-juF"/>
-                                </connections>
-                            </button>
+                            <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" distribution="fillEqually" spacing="4" translatesAutoresizingMaskIntoConstraints="NO" id="vpp-Lt-3cD">
+                                <rect key="frame" x="0.0" y="88" width="414" height="725"/>
+                                <subviews>
+                                    <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="aJy-9n-hFW">
+                                        <rect key="frame" x="0.0" y="0.0" width="414" height="239"/>
+                                        <subviews>
+                                            <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" distribution="fillEqually" spacing="26" translatesAutoresizingMaskIntoConstraints="NO" id="igK-gl-bpq">
+                                                <rect key="frame" x="8" y="70.5" width="398" height="98"/>
+                                                <subviews>
+                                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="fjv-Gp-mPW">
+                                                        <rect key="frame" x="0.0" y="0.0" width="398" height="36"/>
+                                                        <state key="normal" title="現在地を取得"/>
+                                                        <connections>
+                                                            <action selector="reloadCurrentLocation:" destination="41T-rd-aNN" eventType="touchUpInside" id="GXU-fu-Wwd"/>
+                                                        </connections>
+                                                    </button>
+                                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="vCc-nD-W2z">
+                                                        <rect key="frame" x="0.0" y="62" width="398" height="36"/>
+                                                        <fontDescription key="fontDescription" type="system" pointSize="20"/>
+                                                        <state key="normal" title="現在地周辺のレストランを検索"/>
+                                                        <connections>
+                                                            <action selector="searchRestaurantsAround:" destination="41T-rd-aNN" eventType="touchUpInside" id="8Eb-KW-juF"/>
+                                                        </connections>
+                                                    </button>
+                                                </subviews>
+                                                <constraints>
+                                                    <constraint firstAttribute="width" secondItem="igK-gl-bpq" secondAttribute="height" multiplier="199:49" id="oX9-D7-UM8"/>
+                                                </constraints>
+                                            </stackView>
+                                        </subviews>
+                                        <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
+                                        <constraints>
+                                            <constraint firstItem="igK-gl-bpq" firstAttribute="centerY" secondItem="aJy-9n-hFW" secondAttribute="centerY" id="HaG-pu-DSB"/>
+                                            <constraint firstItem="igK-gl-bpq" firstAttribute="leading" secondItem="aJy-9n-hFW" secondAttribute="leading" constant="8" id="LqX-ky-AcL"/>
+                                            <constraint firstAttribute="trailing" secondItem="igK-gl-bpq" secondAttribute="trailing" constant="8" id="rnt-0F-yBu"/>
+                                        </constraints>
+                                    </view>
+                                    <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="jMU-eF-tCk">
+                                        <rect key="frame" x="0.0" y="243" width="414" height="239"/>
+                                        <subviews>
+                                            <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" distribution="fillEqually" spacing="25" translatesAutoresizingMaskIntoConstraints="NO" id="BMt-HM-haw">
+                                                <rect key="frame" x="8" y="37.5" width="398" height="164"/>
+                                                <subviews>
+                                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="場所で検索する" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="UoL-4N-dIo">
+                                                        <rect key="frame" x="0.0" y="0.0" width="398" height="38"/>
+                                                        <fontDescription key="fontDescription" type="system" pointSize="22"/>
+                                                        <nil key="textColor"/>
+                                                        <nil key="highlightedColor"/>
+                                                    </label>
+                                                    <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="S1V-C9-apq">
+                                                        <rect key="frame" x="0.0" y="63" width="398" height="38"/>
+                                                        <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                                        <textInputTraits key="textInputTraits" returnKeyType="done"/>
+                                                    </textField>
+                                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="D9N-kD-Fj7">
+                                                        <rect key="frame" x="0.0" y="126" width="398" height="38"/>
+                                                        <fontDescription key="fontDescription" type="system" pointSize="20"/>
+                                                        <state key="normal" title="入力した場所周辺のレストランを検索"/>
+                                                        <connections>
+                                                            <action selector="searchRestaurantLocationWord:" destination="41T-rd-aNN" eventType="touchUpInside" id="lDt-xb-2nn"/>
+                                                        </connections>
+                                                    </button>
+                                                </subviews>
+                                                <constraints>
+                                                    <constraint firstAttribute="width" secondItem="BMt-HM-haw" secondAttribute="height" multiplier="199:82" id="gtO-wP-IMQ"/>
+                                                </constraints>
+                                            </stackView>
+                                        </subviews>
+                                        <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
+                                        <constraints>
+                                            <constraint firstItem="BMt-HM-haw" firstAttribute="leading" secondItem="jMU-eF-tCk" secondAttribute="leading" constant="8" id="Voe-Hc-9Ak"/>
+                                            <constraint firstItem="BMt-HM-haw" firstAttribute="centerY" secondItem="jMU-eF-tCk" secondAttribute="centerY" id="jwD-Yb-4IE"/>
+                                            <constraint firstAttribute="trailing" secondItem="BMt-HM-haw" secondAttribute="trailing" constant="8" id="veI-lY-nz5"/>
+                                        </constraints>
+                                    </view>
+                                    <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="1jo-nM-tu9">
+                                        <rect key="frame" x="0.0" y="486" width="414" height="239"/>
+                                        <subviews>
+                                            <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" distribution="fillEqually" spacing="10" translatesAutoresizingMaskIntoConstraints="NO" id="0HP-rS-2fk">
+                                                <rect key="frame" x="8" y="58.5" width="398" height="122"/>
+                                                <subviews>
+                                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="検索条件を絞り込む" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="cvm-qK-iAM">
+                                                        <rect key="frame" x="0.0" y="0.0" width="398" height="34"/>
+                                                        <fontDescription key="fontDescription" type="system" pointSize="22"/>
+                                                        <nil key="textColor"/>
+                                                        <nil key="highlightedColor"/>
+                                                    </label>
+                                                    <stackView opaque="NO" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="FnH-Qb-ce5">
+                                                        <rect key="frame" x="0.0" y="44" width="398" height="34"/>
+                                                        <subviews>
+                                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="カテゴリー: " textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="yz1-5z-lsR">
+                                                                <rect key="frame" x="0.0" y="0.0" width="96" height="34"/>
+                                                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                                                <nil key="textColor"/>
+                                                                <nil key="highlightedColor"/>
+                                                            </label>
+                                                            <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="8S9-Rl-SEB">
+                                                                <rect key="frame" x="96" y="0.0" width="302" height="34"/>
+                                                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                                                <textInputTraits key="textInputTraits"/>
+                                                            </textField>
+                                                        </subviews>
+                                                    </stackView>
+                                                    <stackView opaque="NO" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Zic-ZA-y6M">
+                                                        <rect key="frame" x="0.0" y="88" width="398" height="34"/>
+                                                        <subviews>
+                                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="キーワード: " textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="1o1-db-yzY">
+                                                                <rect key="frame" x="0.0" y="0.0" width="96" height="34"/>
+                                                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                                                <nil key="textColor"/>
+                                                                <nil key="highlightedColor"/>
+                                                            </label>
+                                                            <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="yKG-3a-G2t">
+                                                                <rect key="frame" x="96" y="0.0" width="302" height="34"/>
+                                                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                                                <textInputTraits key="textInputTraits" returnKeyType="done"/>
+                                                            </textField>
+                                                        </subviews>
+                                                    </stackView>
+                                                </subviews>
+                                                <constraints>
+                                                    <constraint firstAttribute="width" secondItem="0HP-rS-2fk" secondAttribute="height" multiplier="199:61" id="sJs-b0-jl9"/>
+                                                </constraints>
+                                            </stackView>
+                                        </subviews>
+                                        <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
+                                        <constraints>
+                                            <constraint firstAttribute="trailing" secondItem="0HP-rS-2fk" secondAttribute="trailing" constant="8" id="0se-i0-LYI"/>
+                                            <constraint firstItem="0HP-rS-2fk" firstAttribute="centerY" secondItem="1jo-nM-tu9" secondAttribute="centerY" id="asJ-6Q-tBZ"/>
+                                            <constraint firstItem="0HP-rS-2fk" firstAttribute="leading" secondItem="1jo-nM-tu9" secondAttribute="leading" constant="8" id="vIq-1h-gXK"/>
+                                        </constraints>
+                                    </view>
+                                </subviews>
+                            </stackView>
                         </subviews>
                         <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
+                        <constraints>
+                            <constraint firstItem="63v-zo-xG2" firstAttribute="bottom" secondItem="vpp-Lt-3cD" secondAttribute="bottom" id="0mO-lF-hsi"/>
+                            <constraint firstItem="vpp-Lt-3cD" firstAttribute="top" secondItem="63v-zo-xG2" secondAttribute="top" id="48w-wt-Te7"/>
+                            <constraint firstItem="63v-zo-xG2" firstAttribute="trailing" secondItem="vpp-Lt-3cD" secondAttribute="trailing" id="Reo-Eh-LIl"/>
+                            <constraint firstItem="vpp-Lt-3cD" firstAttribute="leading" secondItem="63v-zo-xG2" secondAttribute="leading" id="oJl-tH-wXs"/>
+                        </constraints>
                         <viewLayoutGuide key="safeArea" id="63v-zo-xG2"/>
                     </view>
                     <tabBarItem key="tabBarItem" systemItem="search" id="1mW-oN-91c"/>
                     <navigationItem key="navigationItem" title="検索" id="ksY-pS-rak"/>
                     <simulatedTabBarMetrics key="simulatedBottomBarMetrics"/>
                     <connections>
+                        <outlet property="categoryTextField" destination="8S9-Rl-SEB" id="Xji-h2-Uah"/>
+                        <outlet property="keywordTextField" destination="yKG-3a-G2t" id="lei-GI-OUL"/>
+                        <outlet property="locationTextField" destination="S1V-C9-apq" id="sWv-gS-pIg"/>
                         <outlet property="reloadCurrentLocationButton" destination="fjv-Gp-mPW" id="kru-mB-U0m"/>
                         <outlet property="searchRestaurantsAroundButton" destination="vCc-nD-W2z" id="4lp-5T-dJz"/>
                         <segue destination="okL-e0-wk4" kind="show" identifier="goNextView" id="v4j-t4-l1S"/>
