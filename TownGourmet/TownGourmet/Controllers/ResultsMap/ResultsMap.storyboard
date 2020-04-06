@@ -30,11 +30,22 @@
                     </view>
                     <connections>
                         <outlet property="mapView" destination="eT6-Wc-Fe7" id="a2o-tu-7nc"/>
+                        <segue destination="Lwr-pd-GYV" kind="show" identifier="goNextView" id="qlt-SB-5es"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="YAj-Gh-ImM" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="2981" y="444"/>
+        </scene>
+        <!--Details-->
+        <scene sceneID="gRe-fh-mWn">
+            <objects>
+                <viewControllerPlaceholder storyboardName="Details" id="Lwr-pd-GYV" sceneMemberID="viewController">
+                    <navigationItem key="navigationItem" id="OZO-op-w2Z"/>
+                </viewControllerPlaceholder>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="qQs-Vw-yZT" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="3662" y="444"/>
         </scene>
     </scenes>
 </document>
