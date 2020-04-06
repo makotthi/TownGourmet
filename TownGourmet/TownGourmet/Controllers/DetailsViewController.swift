@@ -1,5 +1,6 @@
 import UIKit
 import MapKit
+import SafariServices
 
 class DetailsViewController: UIViewController {
 
@@ -89,5 +90,33 @@ extension DetailsViewController {
 // MARK: - Action
 extension DetailsViewController {
     @IBAction private func showWebPage(_ sender: Any) {
+        guard let urlString = restaurantData?.url else {
+            return
+        }
+        guard  let url = URL(string: urlString) else {
+            return
+        }
+
+        openSafariView(url: url)
+    }
+}
+
+// MARK: - SFSafariViewControllerDelegate
+extension DetailsViewController: SFSafariViewControllerDelegate {
+    // SFSafariViewを開く
+    private func openSafariView(url: URL) {
+        let safariViewController = SFSafariViewController(url: url)
+
+        // delegateの通知先を設定
+        safariViewController.delegate = self
+
+        // safariViewが開かれる
+        present(safariViewController, animated: true, completion: nil)
+    }
+
+    // safariViewが閉じられた時に呼ばれるdelegateメソッド
+    func safariViewControllerDidFinish(_ controller: SFSafariViewController) {
+        // safariViewを閉じる
+        dismiss(animated: true, completion: nil)
     }
 }
